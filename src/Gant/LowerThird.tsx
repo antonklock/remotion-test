@@ -25,10 +25,16 @@ export const LowerThird = ({
     ? delay + duration + transitionFrames
     : delay + transitionFrames;
 
+  const inPos = leftSide ? 0 : 844;
+  const outPos = leftSide ? 844 : 0;
+
+  const startPosition = animatedIn ? inPos : outPos;
+  const endPosition = animatedIn ? outPos : inPos;
+
   const position = interpolate(
     frame,
     [startFrame, endFrame],
-    [animatedIn ? 0 : 844, animatedIn ? 844 : 0],
+    [startPosition, endPosition],
     {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
@@ -43,18 +49,21 @@ export const LowerThird = ({
       style={{
         transform: `translateX(-${position}px) translateY(-50%)`,
       }}
-      className={`flex items-center justify-center bg-white opacity-90 w-[844px] h-[176px] top-[821px] ${leftSide ? "left-[422px]" : "left-[1498px]"} -translate-x-1/2 `}
+      className={`flex items-center justify-center bg-white opacity-90 w-[844px] h-[176px] top-[821px] ${leftSide ? "left-[422px]" : "left-[1498px]"} ${leftSide ? "-translate-x-1/2" : "translate-x-1/2"} `}
     >
       <div
-        className={`flex flex-col ${leftSide ? "items-end" : "items-start"} justify-center gap-2 w-full h-full px-10`}
+        className={`flex flex-col ${leftSide ? "items-end" : "items-start"} justify-center gap-2 w-full h-full px-13`}
       >
         <p
-          className="text-5xl font-bold"
+          className="text-[36px] tracking-wider font-bold"
           style={{ fontFamily: "GantModernV2-Bold" }}
         >
           {name}
         </p>
-        <p className="text-4xl" style={{ fontFamily: "GantModernV2-Light" }}>
+        <p
+          className="text-[25px] tracking-widest"
+          style={{ fontFamily: "GantModernV2-Light" }}
+        >
           {title.toUpperCase()}
         </p>
       </div>
