@@ -10,7 +10,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="GantSplitScreen"
         component={GantSplitScreen}
-        durationInFrames={520}
+        durationInFrames={7430}
         fps={30}
         width={1920}
         height={1080}

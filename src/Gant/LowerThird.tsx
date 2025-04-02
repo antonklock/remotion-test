@@ -42,8 +42,6 @@ export const LowerThird = ({
     },
   );
 
-  console.log(duration);
-
   return (
     <AbsoluteFill
       style={{
